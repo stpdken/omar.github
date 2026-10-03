@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>InclusiveTech Presentation</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --maroon: #68152b;
+    --dark: #360b18;
+    --wine: #8d2947;
+    --light: #f5e2e7;
+    --cream: #fffaf7;
+    --white: #ffffff;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    background: var(--cream);
+    color: #35151f;
+}
+
+/* ================= NAVBAR ================= */
+
+nav {
+    position: fixed;
+    top: 18px;
+    left: 5%;
+    right: 5%;
+    height: 70px;
+    padding: 0 25px;
+    background: rgba(104,21,43,.97);
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 15px 40px rgba(59,11,25,.2);
+}
+
+.logo {
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.logo span {
+    background: white;
+    color: var(--maroon);
+    padding: 8px;
+    border-radius: 10px;
+    margin-right: 8px;
+}
+
+nav ul {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+    min-height: 100vh;
+    padding: 150px 8% 80px;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    background:
+        radial-gradient(circle at 85% 25%, #efd3da 0 10%, transparent 11%),
+        linear-gradient(135deg,#fffaf7,#f3dce2);
+}
+
+.hero-text {
+    width: 52%;
+}
+
+.tag {
+    display: inline-block;
+    background: var(--light);
+    color: var(--maroon);
+    padding: 10px 17px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-family: "Playfair Display",serif;
+    font-size: clamp(45px,5vw,70px);
+    line-height: 1.05;
+    color: var(--dark);
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    color: var(--wine);
+}
+
+.hero p {
+    max-width: 650px;
+    line-height: 1.8;
+    color: #66434e;
+    font-size: 17px;
+    margin-bottom: 30px;
+}
+
+.start-btn {
+    display: inline-block;
+    background: var(--maroon);
+    color: white;
+    padding: 16px 25px;
+    border-radius: 14px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 12px 25px rgba(104,21,43,.25);
+    transition: .3s;
+}
+
+.start-btn:hover {
+    transform: translateY(-4px);
+}
+
+/* ================= COMPUTER ================= */
+
+.visual {
+    width: 48%;
+}
+
+.computer {
+    width: 100%;
+    max-width: 550px;
+    margin: auto;
+    background: #fff;
+    border: 12px solid #40101e;
+    border-radius: 25px;
+    padding: 15px;
+    box-shadow: 0 30px 60px rgba(59,11,25,.22);
+}
+
+.screen {
+    height: 310px;
+    border-radius: 13px;
+    padding: 25px;
+    background: linear-gradient(135deg,#f7e6ea,#e9c6d0);
+}
+
+.screen-top {
+    display: flex;
+    gap: 7px;
+}
+
+.dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #a94c68;
+}
+
+.screen-content {
+    height: 85%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.screen h2 {
+    color: var(--maroon);
+    font-size: 30px;
+}
+
+.screen p {
+    margin-top: 12px;
+    color: #69424e;
+    line-height: 1.6;
+}
+
+.big-icon {
+    font-size: 85px;
+}
+
+.stand {
+    width: 100px;
+    height: 45px;
+    background: #40101e;
+    margin: auto;
+}
+
+.base {
+    width: 200px;
+    height: 15px;
+    background: #40101e;
+    border-radius: 20px;
+    margin: auto;
+}
+
+/* ================= PRESENTATION SECTION ================= */
+
+.presentation {
+    padding: 110px 8%;
+    background: #fff;
+}
+
+.section-title {
+    text-align: center;
+    font-family: "Playfair Display",serif;
+    font-size: 48px;
+    color: var(--dark);
+}
+
+.section-description {
+    text-align: center;
+    max-width: 700px;
+    margin: 15px auto 50px;
+    line-height: 1.7;
+    color: #69444e;
+}
+
+/* FEATURE MENU */
+
+.feature-menu {
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    gap: 18px;
+}
+
+.feature-btn {
+    border: none;
+    background: #fff8fa;
+    border: 2px solid #efdce1;
+    border-radius: 20px;
+    padding: 25px 15px;
+    cursor: pointer;
+    transition: .3s;
+    color: var(--dark);
+}
+
+.feature-btn:hover {
+    transform: translateY(-8px);
+    border-color: var(--wine);
+    box-shadow: 0 15px 35px rgba(104,21,43,.13);
+}
+
+.feature-btn.active {
+    background: var(--maroon);
+    color: white;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(104,21,43,.25);
+}
+
+.feature-btn .icon {
+    font-size: 38px;
+    display: block;
+    margin-bottom: 13px;
+}
+
+.feature-btn strong {
+    font-size: 14px;
+}
+
+/* ================= SLIDE PRESENTATION ================= */
+
+.slide-container {
+    margin-top: 40px;
+    background: var(--dark);
+    border-radius: 30px;
+    min-height: 520px;
+    padding: 50px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(59,11,25,.25);
+}
+
+.slide-container::before {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border: 50px solid rgba(255,255,255,.04);
+    border-radius: 50%;
+    right: -100px;
+    top: -100px;
+}
+
+.slide {
+    display: none;
+    animation: slideIn .5s ease;
+}
+
+.slide.active {
+    display: block;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.slide-number {
+    color: #e3a9b8;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.slide h2 {
+    font-family: "Playfair Display",serif;
+    font-size: 45px;
+    margin-bottom: 18px;
+}
+
+.slide-intro {
+    color: #e5c9d0;
+    line-height: 1.7;
+    max-width: 800px;
+    margin-bottom: 30px;
+}
+
+.slide-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 18px;
+}
+
+.slide-card {
+    background: rgba(255,255,255,.09);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 18px;
+    padding: 23px;
+    transition: .3s;
+}
+
+.slide-card:hover {
+    background: rgba(255,255,255,.15);
+    transform: translateY(-5px);
+}
+
+.slide-card .emoji {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.slide-card h3 {
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+.slide-card p {
+    color: #d9bac3;
+    line-height: 1.6;
+    font-size: 13px;
+}
+
+/* ================= SLIDE CONTROLS ================= */
+
+.slide-controls {
+    margin-top: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.arrow {
+    border: 1px solid rgba(255,255,255,.25);
+    background: rgba(255,255,255,.08);
+    color: white;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    transition: .3s;
+}
+
+.arrow:hover {
+    background: white;
+    color: var(--maroon);
+}
+
+.dots {
+    display: flex;
+    gap: 8px;
+}
+
+.slide-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #80515f;
+    cursor: pointer;
+}
+
+.slide-dot.active {
+    width: 28px;
+    border-radius: 20px;
+    background: #e8b7c4;
+}
+
+/* ================= WORKPLACE SECTION ================= */
+
+.workplace {
+    padding: 100px 8%;
+    background: #f4e0e5;
+}
+
+.work-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.work-grid h2 {
+    font-family: "Playfair Display",serif;
+    font-size: 45px;
+    color: var(--dark);
+    margin-bottom: 20px;
+}
+
+.work-grid p {
+    line-height: 1.8;
+    color: #69444e;
+}
+
+.checks {
+    margin-top: 25px;
+    display: grid;
+    gap: 12px;
+}
+
+.check {
+    background: white;
+    padding: 15px;
+    border-radius: 13px;
+    font-weight: 600;
+}
+
+.check span {
+    background: var(--maroon);
+    color: white;
+    padding: 6px 9px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    background: var(--dark);
+    color: white;
+    text-align: center;
+    padding: 55px 20px;
+}
+
+footer h2 {
+    font-family: "Playfair Display",serif;
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+footer p {
+    color: #c9a9b3;
+    line-height: 1.7;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:950px) {
+
+    nav ul {
+        display: none;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text,
+    .visual {
+        width: 100%;
+    }
+
+    .feature-menu {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .slide-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .work-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width:600px) {
+
+    .hero h1 {
+        font-size: 43px;
+    }
+
+    .feature-menu {
+        grid-template-columns: 1fr;
+    }
+
+    .slide-container {
+        padding: 30px 20px;
+    }
+
+    .slide h2 {
+        font-size: 34px;
+    }
+
+    .slide-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .screen {
+        height: 230px;
+    }
+
+    .big-icon {
+        font-size: 50px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+
+    <div class="logo">
+        <span>♿</span>
+        InclusiveTech
+    </div>
+
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#presentation">Features</a></li>
+        <li><a href="#workplace">Workplace</a></li>
+    </ul>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="hero-text">
+
+        <div class="tag">
+            ✦ TECHNOLOGY FOR EVERYONE
+        </div>
+
+        <h1>
+            Inclusive &
+            <span>Accessible</span>
+            Technology
+        </h1>
+
+        <p>
+            Creating a digital workplace where technology is
+            designed to support different abilities, remove
+            barriers, and give everyone an opportunity to
+            participate.
+        </p>
+
+        <a href="#presentation" class="start-btn">
+            Start Presentation →
+        </a>
+
+    </div>
+
+
+    <div class="visual">
+
+        <div class="computer">
+
+            <div class="screen">
+
+                <div class="screen-top">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+
+                <div class="screen-content">
+
+                    <div>
+                        <h2>ACCESS FOR ALL</h2>
+
+                        <p>
+                            Accessible tools<br>
+                            Assistive technology<br>
+                            Equal opportunities
+                        </p>
+                    </div>
+
+                    <div class="big-icon">
+                        💻
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="stand"></div>
+        <div class="base"></div>
+
+    </div>
+
+</section>
+
+
+<!-- PRESENTATION -->
+
+<section class="presentation" id="presentation">
+
+    <div class="section-title">
+        Interactive Presentation
+    </div>
+
+    <p class="section-description">
+        Click each topic below to explore the different ways
+        technology can make the workplace more inclusive and accessible.
+        You can use this section like a mini PowerPoint presentation
+        during your panel presentation.
+    </p>
+
+
+    <!-- CLICKABLE FEATURES -->
+
+    <div class="feature-menu">
+
+        <button class="feature-btn active" onclick="showSlide(0)">
+            <span class="icon">♿</span>
+            <strong>Accessibility Technologies</strong>
+        </button>
+
+        <button class="feature-btn" onclick="showSlide(1)">
+            <span class="icon">🦾</span>
+            <strong>Assistive Technologies</strong>
+        </button>
+
+        <button class="feature-btn" onclick="showSlide(2)">
+            <span class="icon">🌐</span>
+            <strong>Digital Inclusion</strong>
+        </button>
+
+        <button class="feature-btn" onclick="showSlide(3)">
+            <span class="icon">📄</span>
+            <strong>Accessible Content</strong>
+        </button>
+
+        <button class="feature-btn" onclick="showSlide(4)">
+            <span class="icon">⚖️</span>
+            <strong>Equal Access</strong>
+        </button>
+
+    </div>
+
+
+    <!-- SLIDES -->
+
+    <div class="slide-container">
+
+
+        <!-- SLIDE 1 -->
+
+        <div class="slide active">
+
+            <div class="slide-number">
+                01 / 05
+            </div>
+
+            <h2>
+                Accessibility Technologies
+            </h2>
+
+            <p class="slide-intro">
+                Accessibility technologies are features built into
+                digital systems that help people with different
+                abilities access and interact with information.
+            </p>
+
+
+            <div class="slide-grid">
+
+                <div class="slide-card">
+                    <div class="emoji">🔊</div>
+                    <h3>Screen Readers</h3>
+                    <p>
+                        Converts text and interface information
+                        into spoken output.
+                    </p>
+                </div>
+
+                <div class="slide-card">
+                    <div class="emoji">⌨️</div>
+                    <h3>Keyboard Navigation</h3>
+                    <p>
+                        Allows users to navigate digital interfaces
+                        without relying on a mouse.
+                    </p>
+                </div>
+
+                <div class="slide-card">
+                    <div class="emoji">🔍</div>
+                    <h3>Text & Display Tools</h3>
+                    <p>
+                        Adjustable text size, contrast, and display
+                        settings can improve readability.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- SLIDE 2 -->
+
+        <div class="slide">
+
+            <div class="slide-number">
+                02 / 05
+            </div>
+
+            <h2>
+                Assistive Technologies
+            </h2>
+
+            <p class="slide-intro">
+                Assistive technology includes devices and software
+                that help people perform tasks and interact with
+                workplace technology.
+            </p>
+
+
+            <div class="slide-grid">
+
+                <div class="slide-card">
+                    <div class="emoji">🎙️</div>
+                    <h3>Voice Recognition</h3>
+                    <p>
+                        Allows users to control computers and
+                        create text using spoken commands.
+                    </p>
+                </div>
+
+                <div class="slide-card">
+                    <div class="emoji">🖱️</div>
+                    <h3>Alternative Input Devices</h3>
+                    <p>
+                        Specialized devices can provide different
+                        ways to control a computer.
+                    </p>
+                </div>
+
+                <div class="slide-card">
+                    <div class="emoji">🦾</div>
+                    <h3>Adaptive Tools</h3>
+                    <p>
+                        Technology can be adapted to support
+                        individual workplace needs.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- SLIDE 3 -->
+
+        <div class="slide">
+
+            <div class="slide-number">
+                03 / 05
+            </div>
+
+            <h2>
+                Digital Inclusion
+            </h2>
+
+            <p class="slide-intro">
+                Digital inclusion means ensuring that people can
+                access and meaningfully use digital technologies,
+                information, and workplace resources.
+            </p>
+
+
+            <div class="slide-grid">
+
+                <div class="slide-card">
+                    <div class="emoji">🌐</div>
+                    <h3>Internet Access</h3>
+                    <p>
+                        Employees need reliable access to digital
+                        workplace resources.
+                    </p>
+                </div>
+
+                <div class="slide-card">
+                    <div class="emoji">📱</div>
+                    <h3>Digital Tools</h3>
+                    <p>
+                        Workplace platforms should be usable by
+                        people with different abilities.
+                    </p>
+                </div>
+
+                <div class="slide-card">
+                    <div class="emoji">🤝</div>
+                    <h3>Digital Participation</h3>
+                    <p>
+                        Everyone should have opportunities to
+                        communicate and collaborate online.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- SLIDE 4 -->
+
+        <div class="slide">
+
+            <div class="slide-number">
+                04 / 05
+            </div>
+
+            <h2>
+                Accessible Content
+            </h2>
+
+            <p class="slide-intro">
+                Digital content should be designed so that users
+                can understand and navigate information regardless
+                of their abilities.
+            </p>
+
+
+            <div class="slide-grid">
+
+                <div class="slide-card">
+                    <div class="emoji">📝</div>
+                    <h3>Readable Text</h3>
+                    <p>
+                        Clear fonts, spacing, headings, and
+                        language improve readability.
+                    </p>
+                </div>
+
+                <div class="slide-card">
+                    <div class="emoji">🖼️</div>
+                    <h3>Alternative Text</h3>
+                    <p>
+                        Descriptions help users understand
+                        important information in images.
+                    </p>
+                </div>
+
+                <div class="slide-card">
+                    <div class="emoji">🎬</div>
+                    <h3>Captions</h3>
+                    <p>
+                        Captions provide access to spoken
+                        information in videos.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- SLIDE 5 -->
+
+        <div class="slide">
+
+            <div class="slide-number">
+                05 / 05
+            </div>
+
+            <h2>
+                Equal Access to Technology
+            </h2>
+
+            <p class="slide-intro">
+                An inclusive workplace provides employees with
+                fair opportunities to access technology and
+                participate in digital work.
+            </p>
+
+
+            <div class="slide-grid">
+
+                <div class="slide-card">
+                    <div class="emoji">⚖️</div>
+                    <h3>Fair Opportunity</h3>
+                    <p>
+                        Technology should not create unnecessary
+                        barriers to workplace participation.
+                    </p>
+                </div>
+
+                <div class="slide-card">
+                    <div class="emoji">💡</div>
+                    <h3>Flexible Solutions</h3>
+                    <p>
+                        Different employees may benefit from
+                        different technological solutions.
+                    </p>
+                </div>
+
+                <div class="slide-card">
+                    <div class="emoji">❤️</div>
+                    <h3>Inclusive Culture</h3>
+                    <p>
+                        Accessibility becomes stronger when
+                        inclusion is part of workplace culture.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CONTROLS -->
+
+        <div class="slide-controls">
+
+            <button class="arrow" onclick="previousSlide()">
+                ←
+            </button>
+
+            <div class="dots">
+
+                <div class="slide-dot active" onclick="showSlide(0)"></div>
+                <div class="slide-dot" onclick="showSlide(1)"></div>
+                <div class="slide-dot" onclick="showSlide(2)"></div>
+                <div class="slide-dot" onclick="showSlide(3)"></div>
+                <div class="slide-dot" onclick="showSlide(4)"></div>
+
+            </div>
+
+            <button class="arrow" onclick="nextSlide()">
+                →
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- WORKPLACE -->
+
+<section class="workplace" id="workplace">
+
+    <div class="work-grid">
+
+        <div>
+
+            <div class="tag">
+                WHY IT MATTERS
+            </div>
+
+            <h2>
+                Building a workplace without unnecessary barriers.
+            </h2>
+
+            <p>
+                Inclusive technology helps employees access
+                information, communicate, collaborate, and
+                complete their responsibilities. Accessibility
+                should be considered when selecting and designing
+                digital workplace tools.
+            </p>
+
+            <div class="checks">
+
+                <div class="check">
+                    <span>✓</span>
+                    Accessible digital content
+                </div>
+
+                <div class="check">
+                    <span>✓</span>
+                    Assistive technology support
+                </div>
+
+                <div class="check">
+                    <span>✓</span>
+                    Accessible communication
+                </div>
+
+                <div class="check">
+                    <span>✓</span>
+                    Equal access to digital resources
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="computer">
+
+            <div class="screen">
+
+                <div class="screen-top">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+
+                <div class="screen-content">
+
+                    <div>
+                        <h2>INCLUSION</h2>
+
+                        <p>
+                            Access.<br>
+                            Participate.<br>
+                            Empower.
+                        </p>
+                    </div>
+
+                    <div class="big-icon">
+                        🤝
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <h2>InclusiveTech</h2>
+
+    <p>
+        Technology Without Barriers • Access • Include • Empower
+    </p>
+
+    <br>
+
+    <p>
+        © 2026 Inclusive and Accessible Technology in the Workplace
+    </p>
+
+</footer>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+let currentSlide = 0;
+
+const slides = document.querySelectorAll(".slide");
+const featureButtons = document.querySelectorAll(".feature-btn");
+const dots = document.querySelectorAll(".slide-dot");
+
+
+function showSlide(index) {
+
+    currentSlide = index;
+
+    /* Hide every slide */
+    slides.forEach(slide => {
+        slide.classList.remove("active");
+    });
+
+    /* Remove active buttons */
+    featureButtons.forEach(button => {
+        button.classList.remove("active");
+    });
+
+    /* Remove active dots */
+    dots.forEach(dot => {
+        dot.classList.remove("active");
+    });
+
+    /* Show selected slide */
+    slides[index].classList.add("active");
+
+    /* Highlight selected feature */
+    featureButtons[index].classList.add("active");
+
+    /* Highlight selected dot */
+    dots[index].classList.add("active");
+
+    /* Move presentation into view */
+    document.querySelector(".slide-container").scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+}
+
+
+function nextSlide() {
+
+    currentSlide++;
+
+    if (currentSlide >= slides.length) {
+        currentSlide = 0;
+    }
+
+    showSlide(currentSlide);
+}
+
+
+function previousSlide() {
+
+    currentSlide--;
+
+    if (currentSlide < 0) {
+        currentSlide = slides.length - 1;
+    }
+
+    showSlide(currentSlide);
+}
+
+
+/* Keyboard controls */
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "ArrowRight") {
+        nextSlide();
+    }
+
+    if (event.key === "ArrowLeft") {
+        previousSlide();
+    }
+
+});
+
+</script>
+
+</body>
+</html>

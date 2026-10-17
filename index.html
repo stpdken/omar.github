@@ -662,7 +662,36 @@
       *, *::before, *::after {
         transition-duration: 0.01ms !important;
       }
-    }
+  .editorial-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.editorial-card {
+  background: #fff;
+  border: 1px solid #e5d7d5;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.08);
+}
+
+.editorial-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.editorial-content {
+  padding: 20px;
+}
+
+@media (max-width: 650px) {
+  .editorial-grid {
+    grid-template-columns: 1fr;
+  }
+}
   </style>
 </head>
 
@@ -1078,7 +1107,7 @@
                 workplace participation.
               </p>
             </div>
-          </article>
+          </article>https://github.com/stpdken/omar.github/settings/pages
 
           <article class="resource-item">
             <div class="topic-icon" aria-hidden="true">▣</div>
@@ -1223,6 +1252,95 @@
       }
     );
   </script>
+
+<div class="editorial-grid">
+
+  <article class="editorial-card">
+    <img
+      class="editorial-image"
+      src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=85"
+      alt="Electronic components and computer technology"
+      loading="lazy">
+
+    <div class="editorial-content">
+      <div class="editorial-date">TOPIC 01 · ACCESSIBILITY</div>
+      <h3>Understanding Accessibility Technologies</h3>
+      <p>
+        Accessibility technologies help remove barriers in digital
+        environments. Features such as keyboard navigation, readable
+        text, and accessible websites help more people use workplace
+        systems and information.
+      </p>
+      <a href="#technology" class="editorial-link">
+        Explore Accessibility Technologies →
+      </a>
+    </div>
+  </article>
+
+  <article class="editorial-card">
+    <img
+      class="editorial-image"
+      src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=85"
+      alt="Laptop and computer workspace"
+      loading="lazy">
+
+    <div class="editorial-content">
+      <div class="editorial-date">TOPIC 02 · ASSISTIVE TOOLS</div>
+      <h3>Assistive Technology in the Workplace</h3>
+      <p>
+        Screen readers, voice recognition, captions, and alternative
+        input devices can help employees with different needs
+        perform tasks and communicate more independently.
+      </p>
+      <a href="#assistive" class="editorial-link">
+        Discover Assistive Technology →
+      </a>
+    </div>
+  </article>
+
+  <article class="editorial-card">
+    <img
+      class="editorial-image"
+      src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1200&q=85"
+      alt="Colleagues collaborating in a workplace"
+      loading="lazy">
+
+    <div class="editorial-content">
+      <div class="editorial-date">TOPIC 03 · INCLUSION</div>
+      <h3>Building an Inclusive Workplace</h3>
+      <p>
+        Inclusive workplace practices promote equal opportunities,
+        respectful communication, accessible working environments,
+        and meaningful participation for employees.
+      </p>
+      <a href="#workplace" class="editorial-link">
+        Explore Inclusive Practices →
+      </a>
+    </div>
+  </article>
+
+  <article class="editorial-card">
+    <img
+      class="editorial-image"
+      src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=85"
+      alt="Digital technology and computer workspace"
+      loading="lazy">
+
+    <div class="editorial-content">
+      <div class="editorial-date">TOPIC 04 · LEARNING RESOURCES</div>
+      <h3>Resources for Digital Accessibility</h3>
+      <p>
+        Learn practical ways to improve digital accessibility,
+        evaluate workplace tools, and create more usable
+        online information for different audiences.
+      </p>
+      <a href="#resources" class="editorial-link">
+        Browse Resources & Guides →
+      </a>
+    </div>
+  </article>
+
+</div>
 
 </body>
 </html>

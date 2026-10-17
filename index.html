@@ -1,500 +1,1228 @@
-<!DOCTYPE html>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="An educational presentation about inclusive and accessible technology in the workplace.">
-<title>InclusiveTech | Technology Without Barriers</title>
-
-<style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
-
-:root {
-  --maroon: #68152b;
-  --dark: #360b18;
-  --wine: #8d2947;
-  --light: #f5e2e7;
-  --cream: #fffaf7;
-  --white: #fff;
-  --ink: #35151f;
-  --muted: #69434e;
-  --line: #ead2da;
-  --shadow: 0 18px 45px rgba(59,11,25,.12);
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: "DM Sans", sans-serif;
-  background: var(--cream);
-  color: var(--ink);
-  line-height: 1.7;
-}
-
-a { color: inherit; }
-button { font: inherit; }
-
-.hero {
-  min-height: 760px;
-  padding: 90px 6%;
-  display: grid;
-  grid-template-columns: 1.05fr .95fr;
-  align-items: center;
-  gap: 55px;
-  background:
-    radial-gradient(circle at 88% 24%, #efd3da 0 9%, transparent 9.5%),
-    linear-gradient(135deg, #fffaf7, #f3dce2);
-}
-
-.tag {
-  display: inline-block;
-  background: var(--light);
-  color: var(--maroon);
-  padding: 8px 14px;
-  border-radius: 30px;
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 1px;
-  margin-bottom: 18px;
-}
-
-.hero h1,
-.section-title,
-.work-copy h2,
-.closing h2 {
-  font-family: "Playfair Display", serif;
-  color: var(--dark);
-  line-height: 1.08;
-}
-
-.hero h1 {
-  font-size: clamp(42px, 5.3vw, 70px);
-  margin-bottom: 22px;
-  max-width: 680px;
-}
-
-.hero h1 span { color: var(--wine); }
-
-.hero-copy {
-  max-width: 650px;
-  color: var(--muted);
-  font-size: 17px;
-  margin-bottom: 22px;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin: 28px 0;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  background: var(--maroon);
-  color: #fff;
-  text-decoration: none;
-  border: 2px solid var(--maroon);
-  padding: 13px 19px;
-  border-radius: 13px;
-  font-weight: 800;
-  cursor: pointer;
-  transition: .2s;
-}
-
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow);
-}
-
-.btn.secondary {
-  background: transparent;
-  color: var(--maroon);
-}
-
-.hero-note {
-  font-size: 13px;
-  color: #765461;
-}
-
-/* COMPUTER ILLUSTRATION */
-
-.computer-wrap {
-  max-width: 570px;
-  width: 100%;
-  margin: auto;
-  filter: drop-shadow(0 25px 25px rgba(59,11,25,.14));
-}
-
-.monitor {
-  background: #40101e;
-  border: 10px solid #40101e;
-  border-radius: 23px;
-  padding: 9px;
-  position: relative;
-}
-
-.screen {
-  min-height: 330px;
-  border-radius: 13px;
-  padding: 18px;
-  background: linear-gradient(135deg, #fff8fa, #e9c6d0);
-  overflow: hidden;
-}
-
-.screen-top {
-  display: flex;
-  gap: 6px;
-  margin-bottom: 20px;
-}
-
-.dot {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: #a94c68;
-}
-
-.desktop-layout {
-  display: grid;
-  grid-template-columns: 1fr .8fr;
-  gap: 15px;
-  align-items: center;
-}
-
-.desktop-layout h2 {
-  font-size: clamp(22px, 3vw, 33px);
-  line-height: 1.1;
-  color: var(--maroon);
-  font-family: "Playfair Display", serif;
-}
-
-.desktop-layout p {
-  font-size: 13px;
-  color: #69424e;
-  margin-top: 12px;
-}
-
-.desktop-art {
-  border: 2px solid rgba(104,21,43,.16);
-  background: rgba(255,255,255,.55);
-  border-radius: 16px;
-  min-height: 170px;
-  display: grid;
-  place-items: center;
-  font-size: 70px;
-  position: relative;
-}
-
-.mini-window {
-  position: absolute;
-  bottom: 12px;
-  left: 12px;
-  right: 12px;
-  background: white;
-  border-radius: 8px;
-  padding: 7px;
-  display: flex;
-  gap: 5px;
-}
-
-.mini-window i {
-  display: block;
-  height: 6px;
-  border-radius: 5px;
-  background: #dbaab9;
-  flex: 1;
-}
-
-.stand {
-  height: 40px;
-  width: 100px;
-  background: #40101e;
-  margin: auto;
-}
-
-.base {
-  height: 13px;
-  width: 205px;
-  max-width: 60%;
-  background: #40101e;
-  border-radius: 20px;
-  margin: auto;
-}
-
-/* GENERAL SECTIONS */
-
-.section { padding: 95px 6%; }
-.section.white { background: #fff; }
-.section.pink { background: #f4e0e5; }
-
-.section-head {
-  text-align: center;
-  max-width: 820px;
-  margin: 0 auto 42px;
-}
-
-.section-title {
-  font-size: clamp(34px, 4vw, 48px);
-  margin-bottom: 15px;
-}
-
-.section-head p { color: var(--muted); }
-
-.stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin: 35px 0 0;
-}
-
-.stat {
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 20px;
-  text-align: center;
-}
-
-.stat strong {
-  display: block;
-  color: var(--maroon);
-  font-size: 17px;
-}
-
-.stat span {
-  font-size: 13px;
-  color: var(--muted);
-}
-
-/* TOPIC NAVIGATION */
-
-.topic-menu {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 13px;
-}
-
-.topic-btn {
-  border: 2px solid var(--line);
-  background: #fff8fa;
-  border-radius: 18px;
-  padding: 19px 12px;
-  cursor: pointer;
-  color: var(--dark);
-  min-height: 140px;
-  transition: .2s;
-}
-
-.topic-btn .icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 48px;
-  height: 48px;
-  margin: 0 auto 10px;
-  border-radius: 14px;
-  background: #f4dfe5;
-  color: #6f1730;
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: .3px;
-}
-
-.topic-btn strong {
-  font-size: 13px;
-  line-height: 1.35;
-  display: block;
-}
-
-.topic-btn:hover,
-.topic-btn.active {
-  transform: translateY(-4px);
-  border-color: var(--wine);
-  box-shadow: var(--shadow);
-}
-
-.topic-btn.active {
-  background: var(--maroon);
-  color: #fff;
-}
-
-/* PRESENTATION SLIDES */
-
-.slide-container {
-  margin-top: 28px;
-  background: var(--dark);
-  border-radius: 26px;
-  padding: clamp(22px, 4vw, 45px);
-  color: #fff;
-  box-shadow: 0 25px 60px rgba(59,11,25,.22);
-  position: relative;
-  overflow: hidden;
-}
-
-.slide-container:after {
-  content: "";
-  position: absolute;
-  width: 280px;
-  height: 280px;
-  border: 40px solid rgba(255,255,255,.04);
-  border-radius: 50%;
-  right: -100px;
-  top: -110px;
-  pointer-events: none;
-}
-
-.slide {
-  display: none;
-  position: relative;
-  z-index: 1;
-  animation: slideIn .3s ease;
-}
-
-.slide.active { display: block; }
-
-@keyframes slideIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.slide-number {
-  color: #e3a9b8;
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 2px;
-  margin-bottom: 12px;
-}
-
-.slide h2 {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(29px, 4vw, 43px);
-  line-height: 1.15;
-  margin-bottom: 14px;
-  max-width: 800px;
-}
-
-.slide-intro {
-  color: #e5c9d0;
-  max-width: 850px;
-  margin-bottom: 20px;
-}
-
-.slide-visual {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  background: rgba(255,255,255,.07);
-  border: 1px solid rgba(255,255,255,.12);
-  padding: 14px 17px;
-  border-radius: 15px;
-  margin: 18px 0 22px;
-}
-
-.slide-visual .device { font-size: 37px; }
-.slide-visual p { font-size: 13px; color: #e5c9d0; }
-
-.slide-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
-}
-
-.slide-card {
-  background: rgba(255,255,255,.09);
-  border: 1px solid rgba(255,255,255,.12);
-  border-radius: 16px;
-  padding: 20px;
-}
-
-.slide-card .emoji {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 54px;
-  min-height: 54px;
-  border-radius: 16px;
-  background: #f4dfe5;
-  color: #6f1730;
-  margin-bottom: 8px;
-}
-
-.slide-card h3 {
-  font-size: 16px;
-  line-height: 1.35;
-  margin-bottom: 8px;
-}
-
-.slide-card p {
-  font-size: 13px;
-  color: #dec2ca;
-  line-height: 1.7;
-}
-
-.example-box {
-  margin-top: 17px;
-  border-left: 4px solid #e8b7c4;
-  background: rgba(255,255,255,.07);
-  padding: 15px 17px;
-  border-radius: 0 12px 12px 0;
-  color: #f5e4e9;
-  font-size: 14px;
-}
-
-.example-box strong { color: #fff; }
-
-.slide-controls {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-top: 28px;
-  position: relative;
-  z-index: 2;
-}
-
-.arrow {
-  border: 1px solid rgba(255,255,255,.28);
-  background: rgba(255,255,255,.08);
-  color: white;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 20px;
-}
-
-.arrow:hover {
-  background: #fff;
-  color: var(--maroon);
-}
-
-.dots {
-  display: flex;
-  gap: 7px;
-  align-items: center;
-}
-
-.slide-dot {
-  border: 0;
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: #80515f;
-  cursor: pointer;
-}
-
-.slide-dot.active {
-  width: 25px;
-  border-radius: 20px;
-  background: #e8b7c4;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#702631">
+  <meta name="description" content="Discover how inclusive and accessible technology creates equal opportunities in the workplace.">
+  <title>InclusiveTech | Accessible Technology in the Workplace</title>
+
+  <style>
+    :root {
+      --maroon: #702631;
+      --maroon-dark: #4c1821;
+      --maroon-light: #a85360;
+      --cream: #f7f0e8;
+      --white: #ffffff;
+      --text: #29282b;
+      --muted: #655b5a;
+      --border: #e6d9d2;
+      --shadow: 0 8px 25px rgba(75, 25, 33, 0.08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button:focus-visible, a:focus-visible {
+      outline: 3px solid var(--maroon-light);
+      outline-offset: 4px;
+    }
+
+    img, svg {
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(1160px, 92%);
+      margin: auto;
+    }
+
+    /* NAVIGATION */
+
+    header {
+      background: rgba(255, 255, 255, 0.97);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar {
+      min-height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--maroon);
+      font-weight: 800;
+      font-size: 1.3rem;
+      white-space: nowrap;
+    }
+
+    .brand-icon {
+      width: 43px;
+      height: 43px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: var(--maroon);
+      color: white;
+      font-size: 25px;
+    }
+
+    .brand small {
+      display: block;
+      font-size: 0.65rem;
+      font-weight: 500;
+      color: var(--muted);
+      line-height: 1.3;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 23px;
+    }
+
+    .nav-links a {
+      font-size: 0.87rem;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--maroon-light);
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 0;
+      background: var(--maroon);
+      color: white;
+      border-radius: 8px;
+      padding: 9px 13px;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    /* BUTTONS */
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      background: var(--maroon);
+      color: white;
+      border: 2px solid var(--maroon);
+      padding: 12px 21px;
+      border-radius: 30px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .btn:hover {
+      background: var(--maroon-dark);
+      border-color: var(--maroon-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--maroon);
+    }
+
+    .btn-outline:hover {
+      color: white;
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 55px 0 40px;
+      overflow: hidden;
+    }
+
+    .hero-panel {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: center;
+      gap: 35px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: clamp(25px, 5vw, 58px);
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      color: var(--maroon);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.2;
+    }
+
+    h1, .section-title, .about-heading {
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    h1 {
+      color: var(--maroon-dark);
+      font-size: clamp(2.2rem, 4.5vw, 4rem);
+      letter-spacing: -1.5px;
+      margin-bottom: 20px;
+    }
+
+    .hero-copy {
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 25px;
+      font-size: 1.02rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .hero-art {
+      min-width: 0;
+      background: linear-gradient(145deg, #f5e8df, #e6c6bd);
+      border-radius: 20px;
+      padding: 18px;
+      position: relative;
+    }
+
+    .art-caption {
+      background: var(--maroon);
+      color: white;
+      border-radius: 14px;
+      padding: 16px;
+      margin-top: 10px;
+      text-align: center;
+      font-family: Georgia, serif;
+      font-size: 1.12rem;
+    }
+
+    /* GENERAL SECTIONS */
+
+    section {
+      padding: 65px 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 35px;
+    }
+
+    .section-title {
+      color: var(--maroon-dark);
+      font-size: clamp(1.9rem, 3vw, 2.7rem);
+      margin-bottom: 14px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+    }
+
+    /* TOPIC CARDS */
+
+    .topic-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .topic-card {
+      background: white;
+      padding: 27px 21px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      transition: transform 0.25s, border-color 0.25s;
+    }
+
+    .topic-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--maroon-light);
+    }
+
+    .topic-icon {
+      display: grid;
+      place-items: center;
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      background: var(--maroon);
+      color: white;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+
+    .topic-card h3 {
+      color: var(--maroon-dark);
+      font-size: 1.12rem;
+      margin-bottom: 12px;
+    }
+
+    .topic-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 18px;
+    }
+
+    .text-link {
+      margin-top: auto;
+      color: var(--maroon);
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
+
+    .text-link:hover {
+      text-decoration: underline;
+    }
+
+    /* ABOUT */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about-panel {
+      background: var(--maroon);
+      color: white;
+      padding: clamp(27px, 5vw, 45px);
+      border-radius: 22px;
+    }
+
+    .about-panel .section-title {
+      color: white;
+      text-align: left;
+    }
+
+    .about-panel p {
+      color: #f7e8e7;
+      margin-bottom: 15px;
+    }
+
+    .about-visual {
+      background: #eee0d7;
+      border-radius: 22px;
+      padding: 20px;
+    }
+
+    .mission-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 24px;
+    }
+
+    .mission-item {
+      padding: 20px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+    }
+
+    .mission-item h3 {
+      color: var(--maroon);
+      margin-bottom: 8px;
+    }
+
+    .mission-item p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* TECHNOLOGY */
+
+    .technology-section {
+      background: #efe3dc;
+    }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .tech-card {
+      padding: 25px;
+      background: white;
+      border-radius: 17px;
+      border: 1px solid var(--border);
+    }
+
+    .tech-card .topic-icon {
+      width: 48px;
+      height: 48px;
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+    }
+
+    .tech-card h3 {
+      color: var(--maroon-dark);
+      margin-bottom: 10px;
+    }
+
+    .tech-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    /* WORKPLACE */
+
+    .workplace-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 17px;
+    }
+
+    .workplace-card {
+      padding: 24px 19px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+    }
+
+    .workplace-card h3 {
+      color: var(--maroon);
+      font-size: 1.05rem;
+      margin: 12px 0;
+    }
+
+    .workplace-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* RESOURCES */
+
+    .resource-list {
+      display: grid;
+      gap: 15px;
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .resource-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      background: white;
+      border: 1px solid var(--border);
+      padding: 23px;
+      border-radius: 15px;
+    }
+
+    .resource-item .topic-icon {
+      flex-shrink: 0;
+      width: 49px;
+      height: 49px;
+      margin: 0;
+    }
+
+    .resource-item h3 {
+      color: var(--maroon);
+      margin-bottom: 7px;
+    }
+
+    .resource-item p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    /* CONTACT */
+
+    .contact-panel {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: clamp(25px, 5vw, 48px);
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 40px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-info p {
+      color: var(--muted);
+      margin-top: 12px;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 14px;
+    }
+
+    .contact-form label {
+      display: block;
+      color: var(--maroon-dark);
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #d8c9c3;
+      border-radius: 9px;
+      background: #fffdfa;
+      color: var(--text);
+      font: inherit;
+    }
+
+    .contact-form textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: var(--maroon-dark);
+      color: white;
+      padding: 35px 0;
+      margin-top: 30px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    footer p {
+      color: #f1dddd;
+      font-size: 0.88rem;
+    }
+
+    .back-top {
+      display: inline-block;
+      margin-top: 12px;
+      text-decoration: underline;
+      color: white;
+    }
+
+    /* RESPONSIVE DESIGN */
+
+    @media (max-width: 950px) {
+      .nav-links {
+        gap: 13px;
+      }
+
+      .nav-links a {
+        font-size: 0.8rem;
+      }
+
+      .topic-grid,
+      .workplace-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .hero-panel {
+        gap: 22px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .navbar {
+        min-height: 68px;
+        flex-wrap: wrap;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        width: 100%;
+        padding-bottom: 15px;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 12px 8px;
+        border-top: 1px solid var(--border);
+        font-size: 0.95rem;
+      }
+
+      .nav-links .btn {
+        margin-top: 12px;
+        text-align: center;
+      }
+
+      .hero {
+        padding-top: 25px;
+      }
+
+      .hero-panel,
+      .about-grid,
+      .contact-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-panel {
+        padding: 25px 20px;
+      }
+
+      h1 {
+        font-size: clamp(2.1rem, 10vw, 3.2rem);
+      }
+
+      section {
+        padding: 45px 0;
+      }
+
+      .topic-grid,
+      .tech-grid,
+      .workplace-grid,
+      .mission-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .topic-card {
+        padding: 23px;
+      }
+
+      .resource-item {
+        padding: 17px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *, *::before, *::after {
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <header id="home">
+    <div class="container navbar">
+      <a href="#home" class="brand" aria-label="InclusiveTech home">
+        <span class="brand-icon" aria-hidden="true">♿</span>
+        <span>
+          InclusiveTech
+          <small>Accessible Technology, Equal Opportunities</small>
+        </span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="navLinks">☰</button>
+
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#technology">Technology</a>
+        <a href="#workplace">Workplace</a>
+        <a href="#resources">Resources</a>
+        <a href="#contact">Contact</a>
+        <a href="#topics" class="btn">Explore Topics →</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="container hero-panel">
+        <div>
+          <p class="eyebrow">Welcome to InclusiveTech</p>
+          <h1>Inclusive Technology for a More Equal Workplace</h1>
+          <p class="hero-copy">
+            Technology works best when it works for everyone.
+            Discover how accessible tools and inclusive practices
+            can help people of different abilities participate,
+            contribute, and succeed in the workplace.
+          </p>
+          <div class="hero-buttons">
+            <a href="#topics" class="btn">Explore the Topics →</a>
+            <a href="#about" class="btn btn-outline">Learn More</a>
+          </div>
+        </div>
+
+        <!-- Decorative laptop illustration -->
+        <div class="hero-art">
+          <svg viewBox="0 0 500 340" role="img"
+            aria-label="Illustration of a laptop displaying accessibility symbols, with office plants">
+            <defs>
+              <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#4c1821"/>
+                <stop offset="100%" stop-color="#8d3543"/>
+              </linearGradient>
+            </defs>
+
+            <!-- Window -->
+            <rect x="20" y="15" width="460" height="225" rx="15"
+              fill="#fffaf5" opacity=".75"/>
+            <path d="M250 15 V240 M20 130 H480"
+              stroke="#e6cfc5" stroke-width="3"/>
+
+            <!-- Plant -->
+            <path d="M60 260 Q40 210 65 180 Q95 205 60 260"
+              fill="#647d5a"/>
+            <path d="M60 260 Q90 200 120 205 Q110 245 60 260"
+              fill="#82976d"/>
+            <path d="M60 260 V190" stroke="#496343" stroke-width="4"/>
+            <path d="M30 260 H105 L95 300 H40 Z" fill="#b16b58"/>
+
+            <!-- Laptop screen -->
+            <rect x="125" y="55" width="275" height="175" rx="10"
+              fill="#29282b"/>
+            <rect x="136" y="66" width="253" height="153" rx="4"
+              fill="url(#screen)"/>
+
+            <text x="262" y="98" text-anchor="middle"
+              fill="#ffffff" font-size="17" font-weight="bold">
+              ACCESSIBLE
+            </text>
+            <text x="262" y="121" text-anchor="middle"
+              fill="#ffffff" font-size="17" font-weight="bold">
+              TECHNOLOGY
+            </text>
+            <text x="262" y="145" text-anchor="middle"
+              fill="#f8dfd9" font-size="13">
+              Creates Equal Opportunities
+            </text>
+
+            <g fill="none" stroke="#ffffff" stroke-width="2.5"
+              stroke-linecap="round">
+              <circle cx="184" cy="180" r="12"/>
+              <circle cx="262" cy="180" r="12"/>
+              <circle cx="340" cy="180" r="12"/>
+              <path d="M178 180 h12 M184 174 v12"/>
+              <path d="M256 180 h12 M262 174 v12"/>
+              <path d="M334 180 h12 M340 174 v12"/>
+            </g>
+
+            <!-- Laptop base -->
+            <path d="M105 232 H420 L449 258 Q453 264 439 266 H88
+              Q76 264 84 257 Z" fill="#b7a6a0"/>
+            <path d="M210 235 H315 L325 250 H200 Z" fill="#8c7b77"/>
+
+            <!-- Desk -->
+            <rect x="15" y="285" width="470" height="10" rx="5"
+              fill="#b88972"/>
+            <rect x="50" y="295" width="12" height="30" fill="#b88972"/>
+            <rect x="435" y="295" width="12" height="30" fill="#b88972"/>
+
+            <!-- Notebook -->
+            <path d="M345 277 L420 270 L431 282 L355 289 Z"
+              fill="#fffaf5" stroke="#c9aaa0" stroke-width="2"/>
+          </svg>
+
+          <div class="art-caption">
+            “Technology should include everyone.”
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICS -->
+    <section id="topics">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Explore Our Topics</p>
+          <h2 class="section-title">Technology That Includes Everyone</h2>
+          <p>
+            Explore the tools, practices, and resources that help
+            build a more accessible and inclusive workplace.
+          </p>
+        </div>
+
+        <div class="topic-grid">
+          <article class="topic-card">
+            <div class="topic-icon" aria-hidden="true">♿</div>
+            <h3>Accessibility Technologies</h3>
+            <p>
+              Discover digital features that help remove barriers
+              and make workplace technology easier to use.
+            </p>
+            <a class="text-link" href="#technology">Learn More →</a>
+          </article>
+
+          <article class="topic-card">
+            <div class="topic-icon" aria-hidden="true">◉</div>
+            <h3>Assistive Technologies</h3>
+            <p>
+              Learn how supportive tools help people with disabilities
+              work, communicate, and perform tasks more independently.
+            </p>
+            <a class="text-link" href="#assistive">Learn More →</a>
+          </article>
+
+          <article class="topic-card">
+            <div class="topic-icon" aria-hidden="true">♧</div>
+            <h3>Inclusive Workplace Practices</h3>
+            <p>
+              Understand how fair policies, accessible spaces,
+              and supportive teams create equal opportunities.
+            </p>
+            <a class="text-link" href="#workplace">Learn More →</a>
+          </article>
+
+          <article class="topic-card">
+            <div class="topic-icon" aria-hidden="true">▤</div>
+            <h3>Resources & Guides</h3>
+            <p>
+              Explore useful information, practical tips,
+              and guidelines for improving accessibility.
+            </p>
+            <a class="text-link" href="#resources">Learn More →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container about-grid">
+        <div class="about-panel">
+          <p class="eyebrow" style="color:#f4d3d0">About InclusiveTech</p>
+          <h2 class="section-title">Breaking Barriers. Building Opportunities.</h2>
+          <p>
+            Inclusive technology helps create workplaces where
+            people with different abilities can participate and
+            contribute. Accessible digital tools can make everyday
+            work tasks more manageable and communication more effective.
+          </p>
+          <p>
+            An inclusive workplace recognizes individual needs,
+            respects differences, and provides fair opportunities
+            for employees to succeed.
+          </p>
+          <a href="#workplace" class="btn"
+            style="background:white;color:#702631;border-color:white">
+            Discover Inclusive Practices →
+          </a>
+        </div>
+
+        <div>
+          <div class="about-visual">
+            <svg viewBox="0 0 420 260" role="img"
+              aria-label="Computer monitor showing accessibility features on an office desk">
+              <rect x="35" y="15" width="350" height="190" rx="15"
+                fill="#d8c0b5"/>
+              <rect x="52" y="30" width="316" height="160" rx="8"
+                fill="#ffffff"/>
+              <rect x="65" y="43" width="290" height="134" rx="5"
+                fill="#702631"/>
+              <text x="210" y="75" fill="#ffffff" text-anchor="middle"
+                font-size="17" font-weight="bold">ACCESS FOR ALL</text>
+              <g fill="none" stroke="#ffffff" stroke-width="3">
+                <circle cx="125" cy="117" r="17"/>
+                <circle cx="210" cy="117" r="17"/>
+                <circle cx="295" cy="117" r="17"/>
+              </g>
+              <g fill="#ffffff" font-size="11" text-anchor="middle">
+                <text x="125" y="150">Read</text>
+                <text x="210" y="150">Listen</text>
+                <text x="295" y="150">Navigate</text>
+              </g>
+              <rect x="194" y="205" width="32" height="25" fill="#9e8177"/>
+              <path d="M160 232 H260 L278 245 H142 Z" fill="#9e8177"/>
+              <rect x="20" y="245" width="380" height="6" rx="3" fill="#702631"/>
+            </svg>
+          </div>
+
+          <div class="mission-grid">
+            <div class="mission-item">
+              <h3>Our Mission</h3>
+              <p>
+                To promote awareness of accessible technology
+                and inclusive practices in the workplace.
+              </p>
+            </div>
+            <div class="mission-item">
+              <h3>Our Vision</h3>
+              <p>
+                A future where everyone has fair opportunities
+                to participate and succeed at work.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECHNOLOGY -->
+    <section class="technology-section" id="technology">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Digital Accessibility</p>
+          <h2 class="section-title">Technology That Makes a Difference</h2>
+          <p>
+            Accessible design and assistive tools can help people
+            interact with digital content in different ways.
+          </p>
+        </div>
+
+        <div class="tech-grid">
+          <article class="tech-card">
+            <div class="topic-icon" aria-hidden="true">▤</div>
+            <h3>Screen Readers</h3>
+            <p>
+              Read aloud text and describe digital interface
+              elements to help blind and low-vision users navigate
+              websites and documents.
+            </p>
+          </article>
+
+          <article class="tech-card" id="assistive">
+            <div class="topic-icon" aria-hidden="true">🎙</div>
+            <h3>Voice Recognition</h3>
+            <p>
+              Allows users to dictate text and control supported
+              computer functions using spoken commands.
+            </p>
+          </article>
+
+          <article class="tech-card">
+            <div class="topic-icon" aria-hidden="true">CC</div>
+            <h3>Captions & Transcripts</h3>
+            <p>
+              Provide text alternatives for spoken content,
+              helping people follow videos, meetings, and training.
+            </p>
+          </article>
+
+          <article class="tech-card">
+            <div class="topic-icon" aria-hidden="true">⌨</div>
+            <h3>Keyboard Navigation</h3>
+            <p>
+              Enables people to navigate supported digital
+              interfaces without relying on a mouse.
+            </p>
+          </article>
+
+          <article class="tech-card">
+            <div class="topic-icon" aria-hidden="true">◐</div>
+            <h3>Display & Text Options</h3>
+            <p>
+              Text resizing, clear contrast, and other display
+              options can make digital information easier to read.
+            </p>
+          </article>
+
+          <article class="tech-card">
+            <div class="topic-icon" aria-hidden="true">⌘</div>
+            <h3>Adaptive Input Devices</h3>
+            <p>
+              Alternative keyboards, switches, and pointing
+              devices can support different motor and input needs.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORKPLACE -->
+    <section id="workplace">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Inclusion at Work</p>
+          <h2 class="section-title">Building a More Inclusive Workplace</h2>
+          <p>
+            Technology works best when combined with thoughtful
+            workplace policies and respectful teamwork.
+          </p>
+        </div>
+
+        <div class="workplace-grid">
+          <article class="workplace-card">
+            <div class="topic-icon" aria-hidden="true">♧</div>
+            <h3>Inclusive Hiring</h3>
+            <p>
+              Make recruitment materials, applications,
+              and interviews accessible to qualified applicants.
+            </p>
+          </article>
+
+          <article class="workplace-card">
+            <div class="topic-icon" aria-hidden="true">◷</div>
+            <h3>Flexible Work</h3>
+            <p>
+              Where appropriate, offer flexible arrangements
+              that consider different employee needs.
+            </p>
+          </article>
+
+          <article class="workplace-card">
+            <div class="topic-icon" aria-hidden="true">⌂</div>
+            <h3>Accessible Spaces</h3>
+            <p>
+              Consider physical access, accessible equipment,
+              and usable digital work systems.
+            </p>
+          </article>
+
+          <article class="workplace-card">
+            <div class="topic-icon" aria-hidden="true">♡</div>
+            <h3>Awareness & Training</h3>
+            <p>
+              Help teams understand accessibility, respectful
+              communication, and inclusive practices.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESOURCES -->
+    <section class="technology-section" id="resources">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Learn. Apply. Improve.</p>
+          <h2 class="section-title">Resources & Practical Guides</h2>
+          <p>
+            Start with these useful learning topics to understand
+            how workplace accessibility can be improved.
+          </p>
+        </div>
+
+        <div class="resource-list">
+          <article class="resource-item">
+            <div class="topic-icon" aria-hidden="true">✓</div>
+            <div>
+              <h3>Digital Accessibility Checklist</h3>
+              <p>
+                Check whether text is readable, images have useful
+                alternative text, navigation is keyboard-friendly,
+                and controls are clearly labeled.
+              </p>
+            </div>
+          </article>
+
+          <article class="resource-item">
+            <div class="topic-icon" aria-hidden="true">♧</div>
+            <div>
+              <h3>Inclusive Workplace Practices</h3>
+              <p>
+                Learn about reasonable accommodations, inclusive
+                communication, accessible meetings, and fair
+                workplace participation.
+              </p>
+            </div>
+          </article>
+
+          <article class="resource-item">
+            <div class="topic-icon" aria-hidden="true">▣</div>
+            <div>
+              <h3>Assistive Technology Guide</h3>
+              <p>
+                Explore different assistive technologies and
+                consider how tools can meet individual work needs.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <p style="text-align:center;margin-top:25px;color:#655b5a;font-size:.9rem">
+          For further study, consult the
+          <a href="https://www.w3.org/WAI/"
+             target="_blank" rel="noopener noreferrer"
+             class="text-link">W3C Web Accessibility Initiative</a>
+          and its accessibility resources.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container contact-panel">
+        <div class="contact-info">
+          <p class="eyebrow">Get in Touch</p>
+          <h2 class="section-title">Together, We Can Build More Inclusive Workplaces.</h2>
+          <p>
+            Have questions or suggestions about accessible technology?
+            Use the form to prepare a message.
+          </p>
+          <p><strong>Project:</strong> InclusiveTech</p>
+          <p><strong>Topic:</strong> Accessible Technology in the Workplace</p>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+          <div>
+            <label for="name">Your Name</label>
+            <input id="name" name="name" type="text"
+              placeholder="Enter your name" required>
+          </div>
+
+          <div>
+            <label for="email">Email Address</label>
+            <input id="email" name="email" type="email"
+              placeholder="Enter your email" required>
+          </div>
+
+          <div>
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message"
+              placeholder="Write your message here..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn">Prepare Message →</button>
+          <p id="formNotice" role="status" aria-live="polite"
+            style="color:#702631;font-size:.9rem"></p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <a href="#home" class="brand" style="color:white">
+          <span class="brand-icon"
+            style="background:white;color:#702631">♿</span>
+          <span>
+            InclusiveTech
+            <small style="color:#f1dddd">Accessible Technology, Equal Opportunities</small>
+          </span>
+        </a>
+        <p style="margin-top:15px">
+          Technology for everyone. Opportunities for all.
+        </p>
+      </div>
+
+      <div>
+        <p>Educational website project</p>
+        <a href="#home" class="back-top">Back to Top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile navigation
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", function () {
+      const isOpen = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation menu" : "Open navigation menu"
+      );
+      menuToggle.textContent = isOpen ? "✕" : "☰";
+    });
+
+    // Close the mobile menu after selecting a section
+    navLinks.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation menu");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+    // Demonstration contact form
+    // This does not send or store messages on a server.
+    document.getElementById("contactForm").addEventListener(
+      "submit",
+      function (event) {
+        event.preventDefault();
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const message = document.getElementById("message").value.trim();
+
+        if (!name || !email || !message) return;
+
+        const subject = encodeURIComponent(
+          "InclusiveTech Website Inquiry"
+        );
+        const body = encodeURIComponent(
+          "Name: " + name + "\n" +
+          "Email: " + email + "\n\n" +
+          "Message:\n" + message
+        );
+
+        document.getElementById("formNotice").textContent =
+          "Your email app will open so you can review and send your message.";
+
+        window.location.href =
+          "mailto:?subject=" + subject + "&body=" + body;
+      }
+    );
+  </script>
+
+</body>
+</html>
